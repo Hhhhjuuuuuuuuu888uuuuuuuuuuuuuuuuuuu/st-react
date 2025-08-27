@@ -3,179 +3,356 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>index</title>
+    <title>TUT Student Market</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
     <link rel="stylesheet" href="styles.css">
 </head>
 <body>
     <nav>
-        <button onclick="showSection('home')">Home</button>
-        <button onclick="showSection('items')">Items</button>
-        <input style="opacity: 0;" type="search" placeholder="Search for Items" id="searchInput">
-        <button onclick="showSection('cart')">Cart</button>
+        <div class="container nav-container">
+            <div class="logo">TUT<span>Market</span></div>
+            
+            <div class="nav-buttons">
+                <button class="nav-btn" onclick="showSection('items')">Items</button>
+                <button class="nav-btn" onclick="showSection('services')">Services</button>
+            </div>
+            
+            <div class="search-cart">
+                <div class="search-container">
+                    <input type="search" placeholder="Search for Items" class="search-input" id="searchInput">
+                    <i class="fas fa-search search-icon"></i>
+                </div>
+                <button class="cart-btn" onclick="showSection('cart')">
+                    <i class="fas fa-shopping-cart"></i>
+                    Cart <span class="cart-count">0</span>
+                </button>
+            </div>
+        </div>
     </nav>
     
+    <div class="category-buttons container" id="subcategories">
+        <!-- Will be populated by JavaScript -->
+    </div>
+    
     <div class="marquee">
-        <marquee behavior="scroll" direction="left">
-         Order and Pay on Delivery!!! <img src="basket-fill.svg" alt="moves" height="20">
-        </marquee>
+        <div class="container">
+            <marquee behavior="scroll" direction="left">
+                Order and Pay on Delivery!!! <i class="fas fa-shopping-basket"></i>
+            </marquee>
+        </div>
     </div>
     
-    <section id="items" class="content-section" style="display: none;">
-        <div class="main_div" data-name="Puff" data-price="10.00">
-            <img src="IMG/puff.webp" alt="Snack" class="item-img">
-            <h3 class="item-title">Puff</h3>
-            <p class="item-price">R10.00</p> 
-            <div class="sub_div">
-                <div class="btn add-btn">Add to Cart</div>
+    <main class="container">
+        <!-- Items Section -->
+        <section id="items" class="content-section active">
+            <h2 class="section-title">Items For Sale</h2>
+            
+            <div class="category-buttons">
+                <button class="category-btn active" data-category="all">All Items</button>
+                <button class="category-btn" data-category="electronics">Electronics</button>
+                <button class="category-btn" data-category="accessories">Accessories</button>
+                <button class="category-btn" data-category="stationery">Stationery</button>
             </div>
-        </div>
-
-        <div class="main_div" data-name="Hand Bag" data-price="150.00">
-            <img src="IMG/hand_bag.avif" alt="Tomato" class="item-img">
-            <h3 class="item-title">Hand Bag</h3>
-            <p class="item-price">R150.00</p> 
-            <div class="sub_div">
-                <div class="btn add-btn">Add to Cart</div>
+            
+            <div class="items-container">
+                <!-- Electronics -->
+                <div class="main_div" data-name="Iphone 6s" data-price="1800.00" data-category="electronics">
+                    <img src="https://images.unsplash.com/photo-1511707171634-5f897ff02aa9?ixlib=rb-4.0.3&auto=format&fit=crop&w=400&q=80" alt="Iphone" class="item-img">
+                    <h3 class="item-title">Iphone 6s</h3>
+                    <p class="item-price">R1800.00</p> 
+                    <div class="sub_div">
+                        <div class="btn add-btn">Add to Cart</div>
+                    </div>
+                </div>
+                
+                <div class="main_div" data-name="Headphones" data-price="250.00" data-category="electronics">
+                    <img src="https://images.unsplash.com/photo-1505740420928-5e560c06d30e?ixlib=rb-4.0.3&auto=format&fit=crop&w=400&q=80" alt="Headphones" class="item-img">
+                    <h3 class="item-title">Headphones</h3>
+                    <p class="item-price">R250.00</p> 
+                    <div class="sub_div">
+                        <div class="btn add-btn">Add to Cart</div>
+                    </div>
+                </div>
+                
+                <div class="main_div" data-name="Laptop" data-price="5500.00" data-category="electronics">
+                    <img src="https://images.unsplash.com/photo-1496181133206-80ce9b88a853?ixlib=rb-4.0.3&auto=format&fit=crop&w=400&q=80" alt="Laptop" class="item-img">
+                    <h3 class="item-title">Laptop</h3>
+                    <p class="item-price">R5500.00</p> 
+                    <div class="sub_div">
+                        <div class="btn add-btn">Add to Cart</div>
+                    </div>
+                </div>
+                
+                <div class="main_div" data-name="Tablet" data-price="2200.00" data-category="electronics">
+                    <img src="https://images.unsplash.com/photo-1544244015-0df4b3ffc6b0?ixlib=rb-4.0.3&auto=format&fit=crop&w=400&q=80" alt="Tablet" class="item-img">
+                    <h3 class="item-title">Tablet</h3>
+                    <p class="item-price">R2200.00</p> 
+                    <div class="sub_div">
+                        <div class="btn add-btn">Add to Cart</div>
+                    </div>
+                </div>
+                
+                <!-- Accessories -->
+                <div class="main_div" data-name="Hand Bag" data-price="150.00" data-category="accessories">
+                    <img src="https://images.unsplash.com/photo-1553062407-98eeb64c6a62?ixlib=rb-4.0.3&auto=format&fit=crop&w=400&q=80" alt="Hand_Bag" class="item-img">
+                    <h3 class="item-title">Hand Bag</h3>
+                    <p class="item-price">R150.00</p> 
+                    <div class="sub_div">
+                        <div class="btn add-btn">Add to Cart</div>
+                    </div>
+                </div>
+                
+                <div class="main_div" data-name="Watch" data-price="350.00" data-category="accessories">
+                    <img src="https://images.unsplash.com/photo-1523275335684-37898b6baf30?ixlib=rb-4.0.3&auto=format&fit=crop&w=400&q=80" alt="Watch" class="item-img">
+                    <h3 class="item-title">Watch</h3>
+                    <p class="item-price">R350.00</p> 
+                    <div class="sub_div">
+                        <div class="btn add-btn">Add to Cart</div>
+                    </div>
+                </div>
+                
+                <div class="main_div" data-name="Sunglasses" data-price="200.00" data-category="accessories">
+                    <img src="https://images.unsplash.com/photo-1572635196237-14b3f281503f?ixlib=rb-4.0.3&auto=format&fit=crop&w=400&q=80" alt="Sunglasses" class="item-img">
+                    <h3 class="item-title">Sunglasses</h3>
+                    <p class="item-price">R200.00</p> 
+                    <div class="sub_div">
+                        <div class="btn add-btn">Add to Cart</div>
+                    </div>
+                </div>
+                
+                <div class="main_div" data-name="Backpack" data-price="280.00" data-category="accessories">
+                    <img src="https://images.unsplash.com/photo-1553062407-98eeb64c6a62?ixlib=rb-4.0.3&auto=format&fit=crop&w=400&q=80" alt="Backpack" class="item-img">
+                    <h3 class="item-title">Backpack</h3>
+                    <p class="item-price">R280.00</p> 
+                    <div class="sub_div">
+                        <div class="btn add-btn">Add to Cart</div>
+                    </div>
+                </div>
+                
+                <!-- Stationery -->
+                <div class="main_div" data-name="Notebook Set" data-price="120.00" data-category="stationery">
+                    <img src="https://images.unsplash.com/photo-1531346680769-a1d79b57de5c?ixlib=rb-4.0.3&auto=format&fit=crop&w=400&q=80" alt="Notebooks" class="item-img">
+                    <h3 class="item-title">Notebook Set</h3>
+                    <p class="item-price">R120.00</p> 
+                    <div class="sub_div">
+                        <div class="btn add-btn">Add to Cart</div>
+                    </div>
+                </div>
+                
+                <div class="main_div" data-name="Pen Set" data-price="85.00" data-category="stationery">
+                    <img src="https://images.unsplash.com/photo-1583485088034-697b5bc54ccd?ixlib=rb-4.0.3&auto=format&fit=crop&w=400&q=80" alt="Pens" class="item-img">
+                    <h3 class="item-title">Pen Set</h3>
+                    <p class="item-price">R85.00</p> 
+                    <div class="sub_div">
+                        <div class="btn add-btn">Add to Cart</div>
+                    </div>
+                </div>
+                
+                <div class="main_div" data-name="Calculator" data-price="180.00" data-category="stationery">
+                    <img src="https://images.unsplash.com/photo-1587145820266-a5951ee6f620?ixlib=rb-4.0.3&auto=format&fit=crop&w=400&q=80" alt="Calculator" class="item-img">
+                    <h3 class="item-title">Calculator</h3>
+                    <p class="item-price">R180.00</p> 
+                    <div class="sub_div">
+                        <div class="btn add-btn">Add to Cart</div>
+                    </div>
+                </div>
+                
+                <div class="main_div" data-name="Stapler" data-price="65.00" data-category="stationery">
+                    <img src="https://images.unsplash.com/photo-1625775038236-95af570dacc2?ixlib=rb-4.0.3&auto=format&fit=crop&w=400&q=80" alt="Stapler" class="item-img">
+                    <h3 class="item-title">Stapler</h3>
+                    <p class="item-price">R65.00</p> 
+                    <div class="sub_div">
+                        <div class="btn add-btn">Add to Cart</div>
+                    </div>
+                </div>
             </div>
-        </div>
-
-        <div class="main_div" data-name="Iphone 6s" data-price="1800.00">
-            <img src="IMG/Iphone 6s.webp" alt="Potatoes" class="item-img">
-            <h3 class="item-title">Iphone 6s</h3>
-            <p class="item-price">R1800.00</p> 
-            <div class="sub_div">
-                <div class="btn add-btn">Add to Cart</div>
+        </section>
+        
+        <!-- Services Section -->
+        <section id="services" class="content-section">
+            <h2 class="section-title">Services</h2>
+            
+            <div class="category-buttons">
+                <button class="category-btn active" data-category="all">All Services</button>
+                <button class="category-btn" data-category="mens-salon">Men's Salon</button>
+                <button class="category-btn" data-category="womens-salon">Women's Salon</button>
+                <button class="category-btn" data-category="nail-services">Nail Services</button>
             </div>
-        </div>
+            
+            <div class="services-container">
+                <!-- Men's Salon -->
+                <div class="service_div" data-name="Men's Haircut" data-price="100.00" data-category="mens-salon" data-servicer="John Barber">
+                    <img src="https://images.unsplash.com/photo-1562322140-8baeececf3df?ixlib=rb-4.0.3&auto=format&fit=crop&w=400&q=80" alt="Men's Haircut" class="service-img">
+                    <h3 class="service-title">Men's Haircut</h3>
+                    <p class="service-price">R100.00</p>
+                    <p class="servicer">By: John Barber</p>
+                    <div class="sub_div">
+                        <div class="btn add-service-btn">Add to Cart</div>
+                        <div class="btn view-gallery-btn">View Gallery</div>
+                        <div class="btn book-appointment-btn">Book Appointment</div>
+                    </div>
+                </div>
+                
+                <div class="service_div" data-name="Beard Trim" data-price="60.00" data-category="mens-salon" data-servicer="Mike Stylist">
+                    <img src="https://images.unsplash.com/photo-1599351431202-1e0f0137899a?ixlib=rb-4.0.3&auto=format&fit=crop&w=400&q=80" alt="Beard Trim" class="service-img">
+                    <h3 class="service-title">Beard Trim</h3>
+                    <p class="service-price">R60.00</p>
+                    <p class="servicer">By: Mike Stylist</p>
+                    <div class="sub_div">
+                        <div class="btn add-service-btn">Add to Cart</div>
+                        <div class="btn view-gallery-btn">View Gallery</div>
+                        <div class="btn book-appointment-btn">Book Appointment</div>
+                    </div>
+                </div>
+                
+                <!-- Women's Salon -->
+                <div class="service_div" data-name="Women's Haircut" data-price="150.00" data-category="womens-salon" data-servicer="Emma Stylist">
+                    <img src="https://images.unsplash.com/photo-1595476108010-b4d1f102b1b1?ixlib=rb-4.0.3&auto=format&fit=crop&w=400&q=80" alt="Women's Haircut" class="service-img">
+                    <h3 class="service-title">Women's Haircut</h3>
+                    <p class="service-price">R150.00</p>
+                    <p class="servicer">By: Emma Stylist</p>
+                    <div class="sub_div">
+                        <div class="btn add-service-btn">Add to Cart</div>
+                        <div class="btn view-gallery-btn">View Gallery</div>
+                        <div class="btn book-appointment-btn">Book Appointment</div>
+                    </div>
+                </div>
+                
+                <div class="service_div" data-name="Hair Treatment" data-price="200.00" data-category="womens-salon" data-servicer="Emma Stylist">
+                    <img src="https://images.unsplash.com/photo-1599351431202-1e0f0137899a?ixlib=rb-4.0.3&auto=format&fit=crop&w=400&q=80" alt="Hair Treatment" class="service-img">
+                    <h3 class="service-title">Hair Treatment</h3>
+                    <p class="service-price">R200.00</p>
+                    <p class="servicer">By: Emma Stylist</p>
+                    <div class="sub_div">
+                        <div class="btn add-service-btn">Add to Cart</div>
+                        <div class="btn view-gallery-btn">View Gallery</div>
+                        <div class="btn book-appointment-btn">Book Appointment</div>
+                    </div>
+                </div>
+                
+                <!-- Nail Services -->
+                <div class="service_div" data-name="Manicure" data-price="120.00" data-category="nail-services" data-servicer="Nina Nails">
+                    <img src="https://images.unsplash.com/photo-1570172619644-dfd03ed5d7de?ixlib=rb-4.0.3&auto=format&fit=crop&w=400&q=80" alt="Manicure" class="service-img">
+                    <h3 class="service-title">Manicure</h3>
+                    <p class="service-price">R120.00</p>
+                    <p class="servicer">By: Nina Nails</p>
+                    <div class="sub_div">
+                        <div class="btn add-service-btn">Add to Cart</div>
+                        <div class="btn view-gallery-btn">View Gallery</div>
+                        <div class="btn book-appointment-btn">Book Appointment</div>
+                    </div>
+                </div>
+                
+                <div class="service_div" data-name="Pedicure" data-price="150.00" data-category="nail-services" data-servicer="Nina Nails">
+                    <img src="https://images.unsplash.com/photo-1596461404969-9ae70f2830c1?ixlib=rb-4.0.3&auto=format&fit=crop&w=400&q=80" alt="Pedicure" class="service-img">
+                    <h3 class="service-title">Pedicure</h3>
+                    <p class="service-price">R150.00</p>
+                    <p class="servicer">By: Nina Nails</p>
+                    <div class="sub_div">
+                        <div class="btn add-service-btn">Add to Cart</div>
+                        <div class="btn view-gallery-btn">View Gallery</div>
+                        <div class="btn book-appointment-btn">Book Appointment</div>
+                    </div>
+                </div>
+            </div>
+        </section>
+        
+        <!-- Cart Section -->
+        <section id="cart" class="content-section">
+            <div class="cart-section">
+                <h2 class="cart-title">Your Cart</h2>
+                <ul id="cartList">
+                    <li style="color: grey; text-align: center; font-style: italic; list-style: none;">No items added to cart yet</li>
+                </ul>
+                <p class="cart-total">Total: R <span id="totalPrice">0.00</span></p>
+                <button class="checkout-btn">Checkout</button>
+            </div>
+        </section>
+        
+        <!-- Contacts Section -->
+        <section id="contacts" class="content-section">
+            <div class="contact-content">
+                <h2 class="contact-title">Contact Us</h2>
+                <p class="contact-info">Phone: 079-047-8203</p>
+                <p class="contact-info">Email: <a href="mailto:Collinsmaropeng2@gmail.com">info@tutmarket.com</a></p>
+                <p class="contact-info">Address: TUT Main Campus, Pretoria</p>
+            </div>
+        </section>
+    </main>
 
-    <div class="main_div" data-name="mascara" data-price="80.00">
-    <img src="IMG/mascara_match.jpg" alt="mascara" class="item-img">
-    <h3 class="item-title">Mascara</h3>
-    <p class="item-price">R80.00</p> 
-    <div class="sub_div">
-        <div class="btn add-btn">Add to Cart</div>
-    </div>
-</div>
-
-<div class="main_div" data-name="sunglass" data-price="65.00">
-    <img src="IMG/sunglass.webp" alt="Cabbage" class="item-img">
-    <h3 class="item-title">Sunglass</h3>
-    <p class="item-price">R65.00</p> 
-    <div class="sub_div">
-        <div class="btn add-btn">Add to Cart</div>
-    </div>
-</div>
-
-<div class="main_div" data-name="Natural Look Foundation" data-price="75.00">
-    <img src="IMG/natural_look_foundation.jpg" alt="Natural Look Foundation" class="item-img">
-    <h3 class="item-title">Natural Look Foundation</h3>
-    <p class="item-price">R75.00</p> 
-    <div class="sub_div">
-        <div class="btn add-btn">Add to Cart</div>
-    </div>
-</div>
-
-<div class="main_div" data-name="Multitasking Moisturisers" data-price="80.00">
-    <img src="IMG/multitasking_moisturisers.webp" alt="Multitasking Moisturisers" class="item-img">
-    <h3 class="item-title">Multitasking Moisturisers</h3>
-    <p class="item-price">R80.00</p> 
-    <div class="sub_div">
-        <div class="btn add-btn">Add to Cart</div>
-    </div>
-</div>
-
-<div class="main_div" data-name="Nike shoes" data-price="1400.00">
-    <img src="IMG/nike_shoe.jpeg" alt="Nike shoes" class="item-img">
-    <h3 class="item-title">Nike shoes</h3>
-    <p class="item-price">R1400.00</p> 
-    <div class="sub_div">
-        <div class="btn add-btn">Add to Cart</div>
-    </div>
-</div>
-
-<div class="main_div" data-name="Coco Mademoiselle" data-price="40.00">
-    <img src="IMG/perfume_coco mademoiselle.webp" alt="Coco Mademoiselle" class="item-img">
-    <h3 class="item-title">Coco Mademoiselle</h3>
-    <p class="item-price">R40.00</p> 
-    <div class="sub_div">
-        <div class="btn add-btn">Add to Cart</div>
-    </div>
-</div>
-
-    </section>
-    
-    <section id="cart" class="content-section" style="display: none;">
-        <div class="cart-section">
-            <h4 class="cart-title">Cart Items</h4>
-            <ul id="cartList">
-                <li style="color: grey; text-align: center; font-style: italic;">No items added to cart yet</li>
-            </ul>
-            <p class="cart-total">Total: R <span id="totalPrice">0.00</span></p>
-            <button class="checkout-btn" onclick="checkout()">Checkout</button>
-        </div>
-    </section>
-    
-    <section id="home" class="content-section">
-    <!-- <div class="home-content">
-        <h2 class="home-title">Welcome to TUT Science Faculty Student Market</h2>
-        <p class="home-text">Your campus marketplace for affordable essentials. Browse our selection of fresh produce, accessories, snacks, and study supplies at student-friendly prices.</p>
-        <p class="home-text">We're committed to supporting the TUT Science community by providing convenient access to quality products with cash-on-delivery service.</p>
-        <p class="home-text">Check regularly for new arrivals and special offers throughout the academic year.</p>
-        <p class="home-text">Start shopping now by clicking on the Items tab above!</p>
-    </div> -->
-    <!-- <h1 style="text-align: center;">Null</h1> -->
-    </section>
-    
-    <section id="contacts" class="content-section" style="display: none;">
-        <div class="contact-content">
-            <h2 class="contact-title">Contact Us</h2>
-            <p class="contact-info">Phone: 079-047-8203</p>
-            <p class="contact-info">Email: <a href="mailto:Collinsmaropeng2@gmail.com" style="color: grey; text-decoration: none;">info@market.com</a></p>
-        </div>
-    </section>
-
-    <div id="modal" class="modal">
+    <!-- Servicer Gallery Modal -->
+    <div id="servicerModal" class="modal">
         <div class="modal-content">
-            <img id="modalImg" src="" alt="Preview of item">
-            <h3 id="modalName" class="modal-title"></h3>
-            <p id="modalPrice" class="modal-price"></p>
-            <button id="closeModal" class="close-modal">Close</button>
+            <span class="close-btn" onclick="closeServicerGallery()">&times;</span>
+            <h2 class="modal-title" id="servicerName">Servicer Gallery</h2>
+            <div class="gallery-container" id="servicerGallery">
+                <!-- Gallery images will be inserted here -->
+            </div>
         </div>
     </div>
 
-    <form id="orderForm" action="https://formsubmit.co/c979cffa3f60cd909235a13c8f804587" method="POST" style="display: none;">
-        <h3 class="form-title">Order Summary</h3>
-        <div id="orderSummary" style="text-align: left; margin: 15px 0;"></div>
-        <p><strong>Total: R <span id="orderTotal">0.00</span></strong></p>
-        
-        <h3 class="form-title">Delivery Information</h3>
-        <p style="display: none;"><strong>Order Number:</strong> #TUT<span id="order-number"></span></p>
-        <input style="display: none;" id="codeseat" type="text" name="Order Number">
-        <input type="text" name="name" placeholder="Your Name" required class="form-input">
-        <input type="text" name="address" placeholder="Delivery Address" required class="form-input">
-        <input type="tel" name="phone" placeholder="Phone Number" required class="form-input">
-        
-        <input type="hidden" name="_next" value="https://form-2zti.vercel.app/">
-        <input type="hidden" name="_captcha" value="false">
-        <input type="hidden" name="_template" value="table">
-        <input type="hidden" name="Order" id="orderDetails">
-        
-        <div style="margin: 15px 0;">
-            <i style="color: grey;">Cash On Delivery</i>
+    <!-- Appointment Form Modal -->
+    <div id="appointmentModal" class="modal">
+        <div class="modal-content">
+            <span class="close-btn" onclick="closeAppointmentForm()">&times;</span>
+            <h2 class="modal-title">Book Appointment</h2>
+            <form id="appointmentForm">
+                <input type="hidden" id="selectedServicer">
+                <input type="hidden" id="selectedService">
+                
+                <div class="form-group">
+                    <label>Servicer:</label>
+                    <input type="text" id="appointmentServicer" readonly class="form-input">
+                </div>
+                
+                <div class="form-group">
+                    <label>Service:</label>
+                    <input type="text" id="appointmentServiceName" readonly class="form-input">
+                </div>
+                
+                <div class="form-group">
+                    <label>Date:</label>
+                    <input type="date" id="appointmentDate" required class="form-input">
+                </div>
+                
+                <div class="form-group">
+                    <label>Time:</label>
+                    <input type="time" id="appointmentTime" required class="form-input">
+                </div>
+                
+                <div class="form-group">
+                    <label>Your Name:</label>
+                    <input type="text" id="clientName" required class="form-input">
+                </div>
+                
+                <div class="form-group">
+                    <label>Your Phone:</label>
+                    <input type="tel" id="clientPhone" required class="form-input">
+                </div>
+                
+                <div class="form-group">
+                    <label>Notes (optional):</label>
+                    <textarea id="appointmentNotes" class="form-input" style="height: 80px;"></textarea>
+                </div>
+                
+                <button type="submit" class="form-submit">Book Appointment</button>
+            </form>
         </div>
-        <button type="submit" class="submit-btn">Place Order</button>
-        <button type="button" class="back-btn" onclick="showSection('cart')">Back to Cart</button>
-    </form>
+    </div>
 
     <footer>
-        &copy; <script>document.write(new Date().getFullYear());</script>
-        Collins. All rights reserved. <a style="margin-left: 4px; text-decoration: none;" href="#" onclick="showSection('contacts')"> Get in touch</a>
+        <div class="container">
+            &copy; <script>document.write(new Date().getFullYear());</script>
+            TUT Student Market. All rights reserved. <a href="#" onclick="showSection('contacts')">Get in touch</a>
+        </div>
     </footer>
 
+
     <script>
-    window.va = window.va || function () { (window.vaq = window.vaq || []).push(arguments); };
+      window.va = window.va || function () { (window.vaq = window.vaq || []).push(arguments); };
     </script>
     <script defer src="/_vercel/insights/script.js"></script>
+
     <script src="script.js"></script>
 </body>
 </html>
