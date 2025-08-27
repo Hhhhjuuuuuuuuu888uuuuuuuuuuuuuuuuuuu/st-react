@@ -3,15 +3,179 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
+    <title>index</title>
+    <link rel="stylesheet" href="styles.css">
 </head>
 <body>
-    one
+    <nav>
+        <button onclick="showSection('home')">Home</button>
+        <button onclick="showSection('items')">Items</button>
+        <input style="opacity: 0;" type="search" placeholder="Search for Items" id="searchInput">
+        <button onclick="showSection('cart')">Cart</button>
+    </nav>
+    
+    <div class="marquee">
+        <marquee behavior="scroll" direction="left">
+         Order and Pay on Delivery!!! <img src="basket-fill.svg" alt="moves" height="20">
+        </marquee>
+    </div>
+    
+    <section id="items" class="content-section" style="display: none;">
+        <div class="main_div" data-name="Puff" data-price="10.00">
+            <img src="IMG/puff.webp" alt="Snack" class="item-img">
+            <h3 class="item-title">Puff</h3>
+            <p class="item-price">R10.00</p> 
+            <div class="sub_div">
+                <div class="btn add-btn">Add to Cart</div>
+            </div>
+        </div>
 
+        <div class="main_div" data-name="Hand Bag" data-price="150.00">
+            <img src="IMG/hand_bag.avif" alt="Tomato" class="item-img">
+            <h3 class="item-title">Hand Bag</h3>
+            <p class="item-price">R150.00</p> 
+            <div class="sub_div">
+                <div class="btn add-btn">Add to Cart</div>
+            </div>
+        </div>
+
+        <div class="main_div" data-name="Iphone 6s" data-price="1800.00">
+            <img src="IMG/Iphone 6s.webp" alt="Potatoes" class="item-img">
+            <h3 class="item-title">Iphone 6s</h3>
+            <p class="item-price">R1800.00</p> 
+            <div class="sub_div">
+                <div class="btn add-btn">Add to Cart</div>
+            </div>
+        </div>
+
+    <div class="main_div" data-name="mascara" data-price="80.00">
+    <img src="IMG/mascara_match.jpg" alt="mascara" class="item-img">
+    <h3 class="item-title">Mascara</h3>
+    <p class="item-price">R80.00</p> 
+    <div class="sub_div">
+        <div class="btn add-btn">Add to Cart</div>
+    </div>
+</div>
+
+<div class="main_div" data-name="sunglass" data-price="65.00">
+    <img src="IMG/sunglass.webp" alt="Cabbage" class="item-img">
+    <h3 class="item-title">Sunglass</h3>
+    <p class="item-price">R65.00</p> 
+    <div class="sub_div">
+        <div class="btn add-btn">Add to Cart</div>
+    </div>
+</div>
+
+<div class="main_div" data-name="Natural Look Foundation" data-price="75.00">
+    <img src="IMG/natural_look_foundation.jpg" alt="Natural Look Foundation" class="item-img">
+    <h3 class="item-title">Natural Look Foundation</h3>
+    <p class="item-price">R75.00</p> 
+    <div class="sub_div">
+        <div class="btn add-btn">Add to Cart</div>
+    </div>
+</div>
+
+<div class="main_div" data-name="Multitasking Moisturisers" data-price="80.00">
+    <img src="IMG/multitasking_moisturisers.webp" alt="Multitasking Moisturisers" class="item-img">
+    <h3 class="item-title">Multitasking Moisturisers</h3>
+    <p class="item-price">R80.00</p> 
+    <div class="sub_div">
+        <div class="btn add-btn">Add to Cart</div>
+    </div>
+</div>
+
+<div class="main_div" data-name="Nike shoes" data-price="1400.00">
+    <img src="IMG/nike_shoe.jpeg" alt="Nike shoes" class="item-img">
+    <h3 class="item-title">Nike shoes</h3>
+    <p class="item-price">R1400.00</p> 
+    <div class="sub_div">
+        <div class="btn add-btn">Add to Cart</div>
+    </div>
+</div>
+
+<div class="main_div" data-name="Coco Mademoiselle" data-price="40.00">
+    <img src="IMG/perfume_coco mademoiselle.webp" alt="Coco Mademoiselle" class="item-img">
+    <h3 class="item-title">Coco Mademoiselle</h3>
+    <p class="item-price">R40.00</p> 
+    <div class="sub_div">
+        <div class="btn add-btn">Add to Cart</div>
+    </div>
+</div>
+
+    </section>
+    
+    <section id="cart" class="content-section" style="display: none;">
+        <div class="cart-section">
+            <h4 class="cart-title">Cart Items</h4>
+            <ul id="cartList">
+                <li style="color: grey; text-align: center; font-style: italic;">No items added to cart yet</li>
+            </ul>
+            <p class="cart-total">Total: R <span id="totalPrice">0.00</span></p>
+            <button class="checkout-btn" onclick="checkout()">Checkout</button>
+        </div>
+    </section>
+    
+    <section id="home" class="content-section">
+    <!-- <div class="home-content">
+        <h2 class="home-title">Welcome to TUT Science Faculty Student Market</h2>
+        <p class="home-text">Your campus marketplace for affordable essentials. Browse our selection of fresh produce, accessories, snacks, and study supplies at student-friendly prices.</p>
+        <p class="home-text">We're committed to supporting the TUT Science community by providing convenient access to quality products with cash-on-delivery service.</p>
+        <p class="home-text">Check regularly for new arrivals and special offers throughout the academic year.</p>
+        <p class="home-text">Start shopping now by clicking on the Items tab above!</p>
+    </div> -->
+    <!-- <h1 style="text-align: center;">Null</h1> -->
+    </section>
+    
+    <section id="contacts" class="content-section" style="display: none;">
+        <div class="contact-content">
+            <h2 class="contact-title">Contact Us</h2>
+            <p class="contact-info">Phone: 079-047-8203</p>
+            <p class="contact-info">Email: <a href="mailto:Collinsmaropeng2@gmail.com" style="color: grey; text-decoration: none;">info@market.com</a></p>
+        </div>
+    </section>
+
+    <div id="modal" class="modal">
+        <div class="modal-content">
+            <img id="modalImg" src="" alt="Preview of item">
+            <h3 id="modalName" class="modal-title"></h3>
+            <p id="modalPrice" class="modal-price"></p>
+            <button id="closeModal" class="close-modal">Close</button>
+        </div>
+    </div>
+
+    <form id="orderForm" action="https://formsubmit.co/c979cffa3f60cd909235a13c8f804587" method="POST" style="display: none;">
+        <h3 class="form-title">Order Summary</h3>
+        <div id="orderSummary" style="text-align: left; margin: 15px 0;"></div>
+        <p><strong>Total: R <span id="orderTotal">0.00</span></strong></p>
+        
+        <h3 class="form-title">Delivery Information</h3>
+        <p style="display: none;"><strong>Order Number:</strong> #TUT<span id="order-number"></span></p>
+        <input style="display: none;" id="codeseat" type="text" name="Order Number">
+        <input type="text" name="name" placeholder="Your Name" required class="form-input">
+        <input type="text" name="address" placeholder="Delivery Address" required class="form-input">
+        <input type="tel" name="phone" placeholder="Phone Number" required class="form-input">
+        
+        <input type="hidden" name="_next" value="https://form-2zti.vercel.app/">
+        <input type="hidden" name="_captcha" value="false">
+        <input type="hidden" name="_template" value="table">
+        <input type="hidden" name="Order" id="orderDetails">
+        
+        <div style="margin: 15px 0;">
+            <i style="color: grey;">Cash On Delivery</i>
+        </div>
+        <button type="submit" class="submit-btn">Place Order</button>
+        <button type="button" class="back-btn" onclick="showSection('cart')">Back to Cart</button>
+    </form>
+
+    <footer>
+        &copy; <script>document.write(new Date().getFullYear());</script>
+        Collins. All rights reserved. <a style="margin-left: 4px; text-decoration: none;" href="#" onclick="showSection('contacts')"> Get in touch</a>
+    </footer>
 
     <script>
     window.va = window.va || function () { (window.vaq = window.vaq || []).push(arguments); };
     </script>
     <script defer src="/_vercel/insights/script.js"></script>
+    <script src="script.js"></script>
 </body>
 </html>
